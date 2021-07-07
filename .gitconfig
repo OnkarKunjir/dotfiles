@@ -1,0 +1,8 @@
+[core]
+	editor = nvim
+[user]
+	name = OnkarKunjir
+	email = onkarkunjir8@gmail.com
+	signingkey = E26FAEF18A14FAF8
+[commit]
+	gpgsign = true

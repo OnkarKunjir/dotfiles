@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+function open_file(){
+	file_name=$(basename -- "$1")
+	extension="${file_name##*.}"
+	if [[ $extension == "pdf" ]]; then
+		st -e zathura $1&
+	elif [[ $extension == "mkv" ]] || [[ $extension == "mp4" ]]; then
+		vlc $1&
+	elif [[ $extension == "jpeg" ]] || [[ $extension == "jpg" ]] || [[ $extension == "png" ]]; then
+		feh $1&
+	else
+		st -e nvim $1&
+	fi
+		
+	echo true
+}
+
+query=$(echo "" | dmenu -p "Search" -bw 0)
+if [[ -n $query ]]; then
+	file_path=$(find ~/ -type f -iname "$query*" | dmenu -i -p $query -l 10 -bw 0)
+	if [[ -n $file_path ]]; then
+		open_file $file_path
+	fi
+fi

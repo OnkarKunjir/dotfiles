@@ -1,0 +1,6 @@
+if [ "$XDG_CURRENT_DESKTOP" = "DWM" ]; then
+    export XDG_CURRENT_DESKTOP="KDE"
+    export KDE_SESSION_VERSION="5"
+    # export QT_QPA_PLATFORMTHEME="qt5ct"
+    # export QT_PLUGIN_PATH=$HOME/.kde4/lib/kde4/plugins/:/usr/lib/kde4/plugins/
+fi

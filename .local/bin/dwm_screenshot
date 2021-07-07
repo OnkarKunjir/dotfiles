@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+file_name="$(date +"%Y-%m-%d-%s")_screenshot.png"
+scrot $file_name -e 'mv $f ~/Pictures/' && xclip -selection clipboard -t image/png -i "/home/onkar/Pictures/$file_name"  && dunstify -a "dwm_screenshot" -I "/home/onkar/Pictures/$file_name" "Click" "Screenshot saved"

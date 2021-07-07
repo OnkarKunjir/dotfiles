@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+
+bar_pid="/tmp/dwm_bar.pid"
+
+kill $(<"$bar_pid")
+echo $$ > $bar_pid
+notification_id=4399
+
+
+get_time(){
+  # function prints time
+  #  HH:MM AM/PM
+	t=$(date +"%I:%M %p")
+  echo " $t"
+}
+
+get_date(){
+  # function prints date 
+  # Thu, May 27
+	d=$(date +"%a,%b%d")
+  echo " $d"
+}
+
+get_brightness(){
+  # function prints brightness level 
+	brightness=$(xbacklight -get)
+  echo " ${brightness%.*}%"
+}
+
+get_volume(){
+	is_mute=$(pamixer --get-mute)
+	if [[ $is_mute == "false" ]]; then
+		volume=$(pamixer --get-volume)
+    echo " $volume%"
+	else
+		echo ""
+	fi
+}
+
+get_battery(){
+	charge_current=$(cat /sys/class/power_supply/BAT0/capacity)
+	status=$(cat /sys/class/power_supply/BAT0/status)
+	if [[ $status == "Charging" ]];then
+    echo " $charge_current%"
+	else
+		echo " $charge_current%"
+		# if [[ $charge_current -le 15 ]]; then
+		# 	dunstify -a power -r $notification_id -u cirtical "Battery Low"
+		# fi
+	fi
+}
+
+get_wifi(){
+  device_info=$(nmcli device status | grep " wifi " | tr -s " *" " ")
+  wifi_status=$(echo $device_info | cut -d " " -f3)
+  if [[ "$wifi_status" == "connected" ]]; then
+    ssid=$(echo $device_info | cut -d " " -f4)
+    echo " $ssid"
+  elif [[ "$wifi_status" == "unavailable" ]]; then
+    echo " Off"
+  else
+    echo ""
+  fi
+}
+
+get_bluetooth(){
+  powered=$(bluetoothctl show | grep "Powered" | cut -d " " -f2)
+  if [[ "$powered" == "yes" ]]; then 
+    connected=$(bluetoothctl info | grep "Connected" | cut -d " " -f2)
+    if [[ "$connected" == "yes" ]]; then
+      echo " $(bluetoothctl info | grep "Alias" | cut -d ' ' -f2) | "
+    else
+      echo " | "
+    fi
+  else
+    echo " "
+  fi
+}
+
+while true; do
+  xsetroot -name " $(get_bluetooth)$(get_wifi) | $(get_battery) | $(get_volume) | $(get_brightness) | $(get_date) | $(get_time) "
+  sleep 1m
+done

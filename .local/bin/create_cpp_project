@@ -1,0 +1,36 @@
+#!/usr/bin/bash
+project_name=$1
+cmake_file="$HOME/.local/share/create_cpp_project/CMakeLists.txt"
+main_file="$HOME/.local/share/create_cpp_project/main.cpp"
+
+if [[ -z $project_name ]]; then
+  echo "Usage: $1 <project name>"
+  exit
+fi
+
+echo "$(tput bold)Creating new C++ project $project_name $(tput sgr 0)"
+
+if [[ -d $project_name ]]; then
+  echo "$(tput bold)$(tput setaf 1)$project_name already exist.$(tput sgr 0)"
+  exit
+fi
+
+mkdir $project_name
+mkdir "$project_name/build"
+
+# adding CMakeLists.txt file
+cp $cmake_file $project_name
+sed -i "s/NewProject/$project_name/g" "$project_name/CMakeLists.txt"
+
+# adding hello world program as place holder
+cp $main_file $project_name
+
+
+touch $project_name/build/input.txt
+# build cmake project
+cd "$project_name/build"
+cmake ..
+
+make
+echo -e "$(tput bold)$(tput setaf 2)\nReady to code$(tput sgr 0)"
+./"$project_name"

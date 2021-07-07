@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+brightness=$( printf "%.0f" $(xbacklight -get) )
+notification_id=439
+function send_notification(){
+	brightness=$( printf "%.0f" $(xbacklight -get) )
+	bar=$(seq -s "━" $(($brightness/5 + 1)) | sed 's/[0-9]//g')
+	dunstify -a dwm_brightness -r $notification_id -u low  " $bar" 
+}
+
+if [[ $1 == "dec" ]]; then
+	if [[ $brightness -le 5 ]];then
+		xbacklight -set 1
+	else
+		xbacklight -dec 5
+	fi
+else
+	if [[ $brightness -eq 1 ]];then
+		xbacklight -set 5
+	else	
+		xbacklight -inc 5
+	fi
+fi
+send_notification
+/home/onkar/.local/bin/dwm_refresh_bar

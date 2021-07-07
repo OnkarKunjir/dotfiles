@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+option=$(echo -e "Shutdown\nRestart" | dmenu -i -c -l 2)
+if [[ $option == "Shutdown" ]]; then
+	systemctl poweroff
+elif [[ $option == "Restart" ]]; then
+	systemctl reboot
+fi

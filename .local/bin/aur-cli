@@ -1,0 +1,60 @@
+#!/usr/bin/bash
+
+aur_url="https://aur.archlinux.org/rpc/?v=5&type=search&arg="
+git_url="https://aur.archlinux.org/"
+# variables to control notifications.
+app_name="auto-aur"
+notification_id=285
+
+clone_dir="/home/onkar/AUR/"
+
+notify() {
+    # function sends notification with some default arguments.
+    dunstify -r "$notification_id" -a "$app_name" "$1" "$2"
+}
+
+# get keyword to search for
+keyword=$(echo "" | dmenu)
+if [[ -z "$keyword" ]]; then
+    notify "Canceling search" "No keyword provided"
+    exit
+fi
+
+# get json response form aur rpl api.
+notify "Searching" "Package : $keyword"
+response=$(curl "$aur_url$keyword" | tr "," "\n")
+hits=$(echo "$response" | grep "resultcount" | cut -d ":" -f2 | tr -d "\"")
+notify "Result" "Found $hits packages."
+
+# get package name form user via dmenu.
+package=$(echo "$response" | grep -e 'Name' -e "Description" | tr -d "\"\n:" | sed -e "s/Name/\n/g ; s/Description/: /g ; s/^[[:space:]]*//" | dmenu -l 5 | cut -d ":" -f1)
+if [[ -z "$package" ]]; then
+    notify "No package selected"
+    exit
+fi
+
+cd "$clone_dir"
+if [[ -d "$package" ]]; then
+    notify "Failed to clone $package" "$package already exists."
+    exit
+fi
+
+# clone the package
+notify "Started" "git clone $package"
+st -g "80x10+10+40" -i -e git clone "$git_url$package.git"
+if [[ $? -ne 0 ]]; then
+    notify "Failed to clone $package"
+    exit
+fi
+
+# makepkg
+cd "$package"
+notify "Started" "build $package"
+st -g "80x10+10+40" -i -e makepkg -si
+
+if [[ $? -ne 0 ]]; then
+    notify "Failed to install $package"
+    exit
+fi
+
+notify "Finished installing $package"

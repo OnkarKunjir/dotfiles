@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# check if bluetooth is blocked or not with rfkill
+blocked=$(rfkill list bluetooth | grep "yes")
+if [[ -n "$blocked" ]]; then
+	rfkill unblock bluetooth
+fi
+
+device=$({
+	bluetoothctl paired-devices &
+	echo -e "\noff"
+} | dmenu -i -c -l 5)
+
+if [[ $device == "off" ]]; then
+	bluetoothctl power off >/dev/null && notify-send "Bluetooth" "Powerd off"
+else
+	bluetoothctl power on >/dev/null && notify-send "Bluetooth" "Powerd on"
+	mac=$(grep -o "[A-Za-z0-9][A-Za-z0-9]:[A-Za-z0-9][A-Za-z0-9]:[A-Za-z0-9][A-Za-z0-9]:[A-Za-z0-9][A-Za-z0-9]:[A-Za-z0-9][A-Za-z0-9]:[A-Za-z0-9][A-Za-z0-9]" <<<"$device")
+	bluetoothctl connect "$mac" >/dev/null && notify-send "Bluetooth" "Connected to $device"
+fi
+/home/onkar/.local/bin/dwm_refresh_bar

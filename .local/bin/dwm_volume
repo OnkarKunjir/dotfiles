@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+notification_id=439
+
+function send_notification(){
+	if [[ $(pamixer --get-mute) == true ]]; then
+		dunstify -a dwm_volume -r $notification_id -u low " Mute"
+	else	
+		volume=$(pamixer --get-volume)
+		bar=$(seq -s "━" $(($volume/5 + 1)) | sed 's/[0-9]//g' )
+		dunstify -a dwm_volume -r $notification_id -u low  "墳 $bar"
+	fi
+}
+
+if [[ $1 == "inc" ]]; then
+	pamixer -i 5
+elif [[ $1 == "dec" ]]; then
+	pamixer -d 5
+else
+	pamixer -t
+fi
+send_notification
+
+/home/onkar/.local/bin/dwm_refresh_bar
