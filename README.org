@@ -1,0 +1,3 @@
+#+title: Dot-files
+
+These are my personal dot-files and bash scripts. Most of bash scripts are written to work with [[https://github.com/OnkarKunjir/dwm][dwm]], [[https://github.com/OnkarKunjir/st/][st]] and [[https://github.com/OnkarKunjir/dmenu][dmenu]].

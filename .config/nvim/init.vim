@@ -25,6 +25,9 @@ set cursorline
 set background=dark
 set termguicolors
 colorscheme onedark
+" make background transperant.
+hi Normal guibg=NONE ctermbg=NONE 
+
 " let g:airline_powerline_fonts = 1
 " let g:airline_theme='nord'
 set t_Co=256
