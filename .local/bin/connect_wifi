@@ -6,29 +6,29 @@ dunstify "WIFI" "Scanning for available networks"
 nmcli device wifi rescan
 ssid=$(nmcli device wifi | dmenu -i -l 5 | tr -s " *" " " | cut -d ' ' -f3)
 if [[ -z $ssid ]]; then
-  # password name is empty.
-  exit
+    # password name is empty.
+    exit
 fi
 
 is_saved=$(nmcli connection | cut -d ' ' -f1 | grep -o "$ssid")
 
-if [[ -n $is_saved ]]; then 
-  # connect to wifi and check status
-  status=$(nmcli device wifi connect $ssid | grep -o "successfully activated")
-  if [[ -n $status ]]; then
-    dunstify "WIFI" "Connected to $ssid"
-  else
-    dunstify "WIFI" "Failed to connect $ssid"
-  fi
-else
-  # connect using password.
-  passwd=$(echo "" | dmenu -p "Password")
-  if [[ -n $passwd ]]; then 
-    status=$(nmcli device wifi connect $ssid password $passwd | grep -o "successfully activated")
+if [[ -n $is_saved ]]; then
+    # connect to wifi and check status
+    status=$(nmcli device wifi connect $ssid | grep -o "successfully activated")
     if [[ -n $status ]]; then
-      dunstify "WIFI" "Connected to $ssid"
+        dunstify "WIFI" "Connected to $ssid"
     else
-      dunstify "WIFI" "Failed to connect $ssid"
+        dunstify "WIFI" "Failed to connect $ssid"
     fi
-  fi
+else
+    # connect using password.
+    passwd=$(echo "" | dmenu -p "Password")
+    if [[ -n $passwd ]]; then
+        status=$(nmcli device wifi connect "$ssid" password "$passwd" | grep -o "successfully activated")
+        if [[ -n $status ]]; then
+            dunstify "WIFI" "Connected to $ssid"
+        else
+            dunstify "WIFI" "Failed to connect $ssid"
+        fi
+    fi
 fi

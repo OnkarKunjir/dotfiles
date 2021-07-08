@@ -4,15 +4,15 @@ cmake_file="$HOME/.local/share/create_cpp_project/CMakeLists.txt"
 main_file="$HOME/.local/share/create_cpp_project/main.cpp"
 
 if [[ -z $project_name ]]; then
-  echo "Usage: $1 <project name>"
-  exit
+    echo "Usage: $1 <project name>"
+    exit
 fi
 
 echo "$(tput bold)Creating new C++ project $project_name $(tput sgr 0)"
 
 if [[ -d $project_name ]]; then
-  echo "$(tput bold)$(tput setaf 1)$project_name already exist.$(tput sgr 0)"
-  exit
+    echo "$(tput bold)$(tput setaf 1)$project_name already exist.$(tput sgr 0)"
+    exit
 fi
 
 mkdir $project_name
@@ -24,7 +24,6 @@ sed -i "s/NewProject/$project_name/g" "$project_name/CMakeLists.txt"
 
 # adding hello world program as place holder
 cp $main_file $project_name
-
 
 touch $project_name/build/input.txt
 # build cmake project

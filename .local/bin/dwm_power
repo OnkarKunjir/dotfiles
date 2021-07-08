@@ -2,7 +2,7 @@
 
 option=$(echo -e "Shutdown\nRestart" | dmenu -i -c -l 2)
 if [[ $option == "Shutdown" ]]; then
-	systemctl poweroff
+    systemctl poweroff
 elif [[ $option == "Restart" ]]; then
-	systemctl reboot
+    systemctl reboot
 fi

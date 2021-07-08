@@ -1,43 +1,15 @@
 #!/usr/bin/env bash
 
 # check if script is executed as root or not
-
 if [[ $(id -u) -ne 0 ]]; then
-	echo "Missing root privilage"
-	exit
+    echo "Missing root privilage"
+    exit
 fi
-
-mirrorlist="https://archlinux.org/mirrorlist/"
 
 # options
 country="IN"
-http="http"
-https="https"
-ipv4="4"
-ipv6="6"
-mirror_status="on" # use mirror link status
-confirm=true
+url="https://archlinux.org/mirrorlist/?country=$country&protocol=http&protocol=https&ip_version=4&ip_version=6&use_mirror_status=on"
+servers=$(curl -s $url | sed "s/#Server/Server/" | rankmirrors -v -n 5 -)
 
-# file locations
-tmp_path="/tmp/pacman-mirror-list.txt"
-mirror_path="/etc/pacman.d/mirrorlist"
-
-url="$mirrorlist?country=$country&protocol=$http&protocol=$https&ip_version=$ipv4&ip_version=$ipv6&use_mirror_status=$mirror_status"
-wget "$url" -O "$tmp_path"
-
-sed "s/^#Server/Server/" "$tmp_path" -i
-if [[ $confirm ]]; then
-	tput bold
-	cat $tmp_path
-	tput sgr0
-	read -p "Proceed (y/n): " -r proceed
-	if [[ "$proceed" != [yY] ]]; then
-		echo "Exiting"
-		rm $tmp_path
-		exit
-	fi
-fi
-
-echo "Writing new mirror list to $(tput bold)$mirror_path$(tput sgr0)"
-cp "$tmp_path" "$mirror_path"
-rm $tmp_path
+echo "$servers"
+echo "$servers" >/etc/pacman.d/mirrorlist
