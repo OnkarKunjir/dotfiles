@@ -4,28 +4,41 @@ These are my personal dot-files and bash scripts. Most of bash scripts are writt
 
 * Table of Contents :toc:
 - [[#scripts][Scripts]]
+  - [[#aur-cli][aur-cli]]
+  - [[#connect_wifi][connect_wifi]]
+  - [[#create_cpp_project][create_cpp_project]]
+  - [[#dwm_bar][dwm_bar]]
+  - [[#dwm_bluetooth][dwm_bluetooth]]
+  - [[#dwm_brightness][dwm_brightness]]
+  - [[#dwm_power][dwm_power]]
+  - [[#dwm_refresh_bar][dwm_refresh_bar]]
+  - [[#dwm_screenshot][dwm_screenshot]]
+  - [[#dwm_volume][dwm_volume]]
+  - [[#mdmenu_run][mdmenu_run]]
+  - [[#pacman-mirror-update][pacman-mirror-update]]
+  - [[#search_home][search_home]]
 
 * Scripts
-+ aur-cli
-  Search, download and install packages from AUR.
-+ connect_wifi
-  Get wifi connection information and connect to wifi network use Network-manager.
-+ create_cpp_project
-  Creates c++ cmake project in predefined structure.
-+ dwm_bar
-  Status bar for dwm.
-+ dwm_bluetooth
-  Manage bluetooth devices using bluetoothctl and dmenu.
-+ dwm_brightness
-+ dwm_power
-  Menu to restart and power off device.
-+ dwm_refresh_bar
-+ dwm_screenshot
-  Screen shot is saved in ~/Pictures and also copied to clipboard.
-+ dwm_volume
-  Control volume using pamixer.
-+ mdmenu_run
-  dmenu run with cache feature. Shows recently used programs on top.
-+ pacman-mirror-update
-  Downloads new pacman mirror list and sorts the servers.
-+ search_home
+** aur-cli
+Search, download and install packages from AUR.
+** connect_wifi
+Get wifi connection information and connect to wifi network use Network-manager.
+** create_cpp_project
+Creates c++ cmake project in predefined structure.
+** dwm_bar
+Status bar for dwm.
+** dwm_bluetooth
+Manage bluetooth devices using bluetoothctl and dmenu.
+** dwm_brightness
+** dwm_power
+Menu to restart and power off device.
+** dwm_refresh_bar
+** dwm_screenshot
+Screen shot is saved in ~/Pictures and also copied to clipboard.
+** dwm_volume
+Control volume using pamixer.
+** mdmenu_run
+dmenu run with cache feature. Shows recently used programs on top.
+** pacman-mirror-update
+Downloads new pacman mirror list and sorts the servers.
+** search_home

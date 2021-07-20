@@ -60,7 +60,7 @@
 ;; do not use lsp auto formatter even it available.
 (setq +format-with-lsp nil)
 
-;; change ellipsis in org mode from ... to this.
+;; change ellipsis in org mode from ... to ▼.
 (after! org
   (setq org-ellipsis " ▼")
 
@@ -86,10 +86,6 @@
   (set-face-attribute 'line-number nil :inherit 'fixed-pitch)
   (set-face-attribute 'line-number-current-line nil :inherit 'fixed-pitch)
             )
-
-
-  ;; Set faces for heading levels
-
 
 (after! doom-themes
   (setq doom-themes-enable-bold t
