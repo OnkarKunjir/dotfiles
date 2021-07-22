@@ -61,18 +61,17 @@ dwm.selbordercolor:   #282a36
 
 
 !Nord
-/*
-dmenu.selbackground:  #88c0d0
-dmenu.selforeground:  #2e3440
+dmenu.selbackground:  #3b4252
+dmenu.selforeground:  #88c0d0
 
 dwm.normbgcolor:      #2e3440
-dwm.selbgcolor:       #88c0d0
+dwm.selbgcolor:       #3b4252
 
-dwm.normfgcolor:      #d08770
-dwm.selfgcolor:       #2e3440
+dwm.normfgcolor:      #d8dee9
+dwm.selfgcolor:       #88c0d0
 
-dwm.normbordercolor:  #4c566a
-dwm.selbordercolor:   #8fbcbb
+dwm.normbordercolor:  #2e3440
+dwm.selbordercolor:   #81a1c1
 
 ! special
 *.foreground:         #d8dee9
@@ -110,9 +109,9 @@ dwm.selbordercolor:   #8fbcbb
 ! white
 *.color7:             #e5e9f0
 *.color15:            #eceff4
-*/
 
 !One Dark
+/*
 dmenu.selbackground:  #4C566A
 dmenu.selforeground:  #ABB2BF
 
@@ -161,3 +160,4 @@ dwm.selbordercolor:   #61AFEF
 ! white
 *.color7:             #abb2bf
 *.color15:            #abb2bf
+*/

@@ -2,14 +2,12 @@ call plug#begin('~/.config/nvim/plugged')
 	"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'junegunn/goyo.vim'
 	Plug 'ap/vim-css-color'
-	"Plug 'morhetz/gruvbox'
-	"Plug 'arcticicestudio/nord-vim'
+	Plug 'arcticicestudio/nord-vim'
 	Plug 'preservim/nerdtree'
-	Plug 'itchyny/lightline.vim'
-	"Plug 'vim-airline/vim-airline'
+	"Plug 'itchyny/lightline.vim'
+	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
   Plug 'joshdick/onedark.vim'
-	"Plug 'dracula/vim',{'as':'dracula'}
 call plug#end()
 
 set wrap linebreak
@@ -24,18 +22,19 @@ let mapleader=" "
 set cursorline
 set background=dark
 set termguicolors
-colorscheme onedark
+colorscheme nord
 " make background transperant.
 hi Normal guibg=NONE ctermbg=NONE 
 
-" let g:airline_powerline_fonts = 1
-" let g:airline_theme='nord'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='nord'
+
 set t_Co=256
 let g:rehash256 = 1
 
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ }
+" let g:lightline = {
+"       \ 'colorscheme': 'nord',
+"       \ }
 
 set mouse=a
 set confirm
