@@ -77,6 +77,6 @@ get_bluetooth() {
 }
 
 while true; do
-    xsetroot -name " $(get_bluetooth)$(get_wifi) | $(get_battery) | $(get_volume) | $(get_brightness) | $(get_date) | $(get_time) "
+    xsetroot -name " $(get_bluetooth)$(get_wifi) | $(get_volume) | $(get_brightness) | $(get_time) "
     sleep 1m
 done

@@ -124,6 +124,9 @@ alias ll='ls -lh --color=auto'
 alias grep='grep --color'
 alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
+# initalize nnn envvars.
+source "${XDG_CONFIG_HOME:-$HOME/.config}/nnn/init"
+
 # change cursor in insert and normal mode
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
