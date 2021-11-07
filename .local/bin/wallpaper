@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+
+out_image="/tmp/wallpaper_edit.png"
+font="Source-Sans-3-Bold"
+font_color="#d8dee9"
+font_size=250
+x=4046
+y=2516
+
+day=$(date +"%A,")
+month=$(date +"%b %d")
+
+feh --bg-scale "$1"
+convert -font "$font" -pointsize "$font_size" -fill "$font_color" -draw "text $x,$y '$day' text $x,$((y + font_size)) '$month'" "$1" "$out_image"
+feh --bg-scale "$out_image"
