@@ -1,0 +1,23 @@
+#!/usr/bin/bash
+
+project_name=$1
+res="$HOME/.local/share/create_c_project"
+
+if [[ -z "$project_name" ]]; then
+    echo "usage: $0 [project name]"
+    exit
+fi
+
+if [[ -d "$project_name" ]]; then
+    echo "$project_name already exist"
+    exit
+fi
+
+# create folder structure
+mkdir -p "$project_name/src"
+cp "$res/.gitignore" "$project_name/"
+cp "$res/main.c" "$project_name/src/"
+cp "$res/Makefile" "$project_name/"
+touch "$project_name/README.org"
+
+sed -i "s/__PROJECT_NAME__/$project_name/g" "$project_name/Makefile"

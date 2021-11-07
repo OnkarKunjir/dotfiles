@@ -4,3 +4,4 @@ nitrogen --restore
 picom --experimental-backends &
 dunst &
 /home/onkar/.local/bin/dwm_bar &
+redshift &
