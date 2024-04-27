@@ -2,6 +2,8 @@
 ! st.font: SauceCodePro Nerd Font:size=16
 ! st.borderpx: 20
 ! dmenu.font: SauceCodePro Nerd Font:size=16:style=Bold
+!
+Xft.dpi: 96
 
 st.font: Fira Code:size=16
 st.borderpx: 20

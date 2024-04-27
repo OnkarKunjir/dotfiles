@@ -4,7 +4,7 @@ out_image="/tmp/wallpaper_edit.png"
 font="Source-Sans-3-Bold"
 font_color="#d8dee9"
 font_size=250
-x=4046
+x=3716
 y=2516
 
 day=$(date +"%A,")

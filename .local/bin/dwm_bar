@@ -43,9 +43,9 @@ get_battery() {
         echo " $charge_current%"
     else
         echo " $charge_current%"
-        # if [[ $charge_current -le 15 ]]; then
-        # 	dunstify -a power -r $notification_id -u cirtical "Battery Low"
-        # fi
+        if [[ $charge_current -le 15 ]]; then
+        	dunstify -a power -r $notification_id -u cirtical "Battery Low"
+        fi
     fi
 }
 
@@ -77,6 +77,6 @@ get_bluetooth() {
 }
 
 while true; do
-    xsetroot -name " $(get_bluetooth)$(get_wifi) | $(get_volume) | $(get_brightness) | $(get_time) "
+  xsetroot -name " $(get_bluetooth)$(get_wifi) | $(get_battery) | $(get_volume) | $(get_brightness) | $(get_time) "
     sleep 1m
 done

@@ -22,14 +22,14 @@
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
-(setq doom-font (font-spec :family "Fira Code Retina" :size 18)
-      doom-variable-pitch-font (font-spec :family "Cantarell" :size 15)
+(setq doom-font (font-spec :family "Fira Code Retina" :size 20)
+      doom-variable-pitch-font (font-spec :family "Cantarell" :size 18)
       doom-big-font (font-spec :family "Fira Code Retina" :size 24))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -94,8 +94,8 @@
 ;; show profile picture of the person who made commit
 (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
 
-(defvar frame-transparency '(90 . 90))
-(set-frame-parameter (selected-frame) 'alpha frame-transparency)
-(add-to-list 'default-frame-alist `(alpha . ,frame-transparency))
-(set-frame-parameter (selected-frame) 'fullscreen 'maximized)
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;; (defvar frame-transparency '(90 . 90))
+;; (set-frame-parameter (selected-frame) 'alpha frame-transparency)
+;; (add-to-list 'default-frame-alist `(alpha . ,frame-transparency))
+;; (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
+;; (add-to-list 'default-frame-alist '(fullscreen . maximized))

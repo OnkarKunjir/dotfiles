@@ -7,5 +7,5 @@ wallpaper_image="$HOME/Pictures/wallpapers/citynight.png"
 picom --experimental-backends &
 dunst &
 /home/onkar/.local/bin/dwm_bar &
-redshift &
+# redshift &
 /home/onkar/.local/bin/wallpaper "$wallpaper_image" &

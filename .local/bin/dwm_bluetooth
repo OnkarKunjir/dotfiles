@@ -7,7 +7,7 @@ if [[ -n "$blocked" ]]; then
 fi
 
 device=$({
-	bluetoothctl paired-devices &
+	bluetoothctl devices &
 	echo -e "\noff"
 } | dmenu -i -c -l 5)
 
