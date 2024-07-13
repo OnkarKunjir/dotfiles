@@ -6,7 +6,7 @@
 Xft.dpi: 96
 
 st.font: Fira Code:size=16
-st.borderpx: 20
+st.borderpx: 0
 dmenu.font: Fira Code:size=16:style=Bold
 
 
