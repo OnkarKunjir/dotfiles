@@ -9,6 +9,11 @@ vim.cmd("set wrap linebreak")
 vim.cmd("set clipboard+=unnamedplus")
 vim.cmd("set number relativenumber")
 
+-- search related config
+vim.opt.incsearch = true
+-- turn off search highlighting till next search is triggered
+vim.keymap.set("n", "<ESC>", ":noh<CR>")
+
 -- creating and closing windows
 vim.keymap.set("n", "<leader>ws", ":split<CR>")
 vim.keymap.set("n", "<leader>wv", ":vsplit<CR>")
@@ -27,3 +32,10 @@ vim.keymap.set("n", "<Up>", ":resize -2<CR>")
 vim.keymap.set("n", "<Down>", ":resize +2<CR>")
 vim.keymap.set("n", "<Left>", ":vertical resize -2<CR>")
 vim.keymap.set("n", "<Right>", ":vertical resize +2<CR>")
+
+-- auto closing
+vim.keymap.set("i", "\"", "\"\"<left>")
+vim.keymap.set("i", "'", "''<left>")
+vim.keymap.set("i", "(", "()<left>")
+vim.keymap.set("i", "[", "[]<left>")
+vim.keymap.set("i", "{", "{}<left>")
