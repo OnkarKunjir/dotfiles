@@ -1,0 +1,21 @@
+-- Disable search highlight when Esc is pressed in normal mode.
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- Creating splits.
+vim.keymap.set("n", "<leader>ws", ":split<CR>")
+vim.keymap.set("n", "<leader>wv", ":vsplit<CR>")
+vim.keymap.set("n", "<leader>wc", ":q<CR>")
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "k", "gk")
+
+-- Navigating splits.
+vim.keymap.set("n", "<leader>wj", "<C-W><C-J>")
+vim.keymap.set("n", "<leader>wk", "<C-W><C-K>")
+vim.keymap.set("n", "<leader>wl", "<C-W><C-L>")
+vim.keymap.set("n", "<leader>wh", "<C-W><C-H>")
+
+-- Resize splits.
+vim.keymap.set("n", "<Up>", ":resize -2<CR>")
+vim.keymap.set("n", "<Down>", ":resize +2<CR>")
+vim.keymap.set("n", "<Left>", ":vertical resize -2<CR>")
+vim.keymap.set("n", "<Right>", ":vertical resize +2<CR>")
