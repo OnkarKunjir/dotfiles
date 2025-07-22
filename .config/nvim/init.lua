@@ -8,5 +8,4 @@ require('lazy').setup({
   },
 })
 
-
-vim.lsp.enable('pyright')
+require('config/lsp')
