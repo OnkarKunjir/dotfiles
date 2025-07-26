@@ -26,3 +26,6 @@ vim.keymap.set('i', '\'', '\'\'<left>')
 vim.keymap.set('i', '(', '()<left>')
 vim.keymap.set('i', '[', '[]<left>')
 vim.keymap.set('i', '{', '{}<left>')
+
+-- Formating file
+vim.keymap.set('n', '<leader>ff', function() vim.lsp.buf.format() end)

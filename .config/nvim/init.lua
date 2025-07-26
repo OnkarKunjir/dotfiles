@@ -4,8 +4,6 @@ require('config/lazy')
 
 require('lazy').setup({
     spec = {
-      { import = 'plugins' }
+        { import = 'plugins' }
     },
 })
-
-require('config/lsp')
