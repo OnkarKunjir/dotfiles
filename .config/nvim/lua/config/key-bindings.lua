@@ -8,6 +8,11 @@ vim.keymap.set('n', '<leader>wc', ':q<CR>')
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
+-- buffers
+vim.keymap.set('n', '<leader>bn', ':bn<CR>')
+vim.keymap.set('n', '<leader>bp', ':bp<CR>')
+vim.keymap.set('n', '<leader>bd', ':bd<CR>')
+
 -- Navigating splits.
 vim.keymap.set('n', '<leader>wj', '<C-W><C-J>')
 vim.keymap.set('n', '<leader>wk', '<C-W><C-K>')
@@ -29,3 +34,18 @@ vim.keymap.set('i', '{', '{}<left>')
 
 -- Formating file
 vim.keymap.set('n', '<leader>ff', function() vim.lsp.buf.format() end)
+
+
+-- lsp related bindings
+vim.keymap.set('n', '<leader>le', function()
+    vim.diagnostic.open_float({
+        focusable = true,
+    })
+end)
+vim.keymap.set('n', '<leader>ld', vim.lsp.buf.hover)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
+vim.keymap.set("n", "gr", vim.lsp.buf.references)
+
+

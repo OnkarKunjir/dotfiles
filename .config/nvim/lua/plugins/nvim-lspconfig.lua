@@ -38,13 +38,12 @@ return {
 
         vim.diagnostic.config({
             -- update_in_insert = true,
+            underline = true,
             float = {
                 focusable = false,
                 style = "minimal",
                 border = "rounded",
-                source = "always",
-                header = "",
-                prefix = "",
+                source = true,
             },
         })
 

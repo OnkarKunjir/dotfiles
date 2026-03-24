@@ -103,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export PATH=$PATH:$HOME/.local/bin
 alias vim='nvim'
 alias ls='ls --color=auto'
 alias ll='ls -lh --color=auto'
