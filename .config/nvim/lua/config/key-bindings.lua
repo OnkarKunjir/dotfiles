@@ -1,9 +1,9 @@
 -- Disable search highlight when Esc is pressed in normal mode.
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Creating splits.
-vim.keymap.set('n', '<leader>ws', ':split<CR>')
-vim.keymap.set('n', '<leader>wv', ':vsplit<CR>')
+-- reating splits.
+vim.keymap.set('n', '<leader>ws', '<C-w>s')
+vim.keymap.set('n', '<leader>wv', '<C-w>v')
 vim.keymap.set('n', '<leader>wc', ':q<CR>')
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
@@ -32,6 +32,14 @@ vim.keymap.set('i', '(', '()<left>')
 vim.keymap.set('i', '[', '[]<left>')
 vim.keymap.set('i', '{', '{}<left>')
 
+-- Terminal commands
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+vim.keymap.set("n", "<leader>ot", function()
+    vim.cmd("botright split | terminal")
+    vim.cmd("startinsert")
+end)
+
+
 -- Formating file
 vim.keymap.set('n', '<leader>ff', function() vim.lsp.buf.format() end)
 
@@ -47,5 +55,3 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
 vim.keymap.set("n", "gr", vim.lsp.buf.references)
-
-

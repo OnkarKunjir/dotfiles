@@ -1,4 +1,4 @@
-local selected_lsp_servers = { 'lua_ls', 'pyright' }
+local selected_lsp_servers = { 'lua_ls', 'pyright', 'jsonls' }
 
 return {
     "neovim/nvim-lspconfig",
