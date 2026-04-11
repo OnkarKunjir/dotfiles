@@ -1,10 +1,15 @@
 return {
-	'nvim-telescope/telescope.nvim', tag = '0.1.8',
-	dependencies = { 'nvim-lua/plenary.nvim' },
-	keys = {
-		{'<leader><leader>', '<cmd>Telescope find_files<cr>'},
-		{'<leader>fg', '<cmd>Telescope live_grep<cr>'},
-		{'<leader>fb', '<cmd>Telescope buffers<cr>'},
-		{'<leader>fh', '<cmd>Telescope help_tags<cr>'},
-	},
+    'nvim-telescope/telescope.nvim',
+    version = '*',
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        -- optional but recommended
+        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    },
+    keys = {
+        { '<leader><leader>', '<cmd>Telescope find_files<cr>' },
+        { '<leader>fg',       '<cmd>Telescope live_grep<cr>' },
+        { '<leader>fb',       '<cmd>Telescope buffers<cr>' },
+        { '<leader>fh',       '<cmd>Telescope help_tags<cr>' },
+    },
 }
