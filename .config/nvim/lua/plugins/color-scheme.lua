@@ -3,6 +3,10 @@ return {
     name = 'catppuccin',
     priority = 1000,
     config = function()
-        vim.cmd.colorscheme 'catppuccin-mocha'
+        -- setup must be called before loading
+        require("catppuccin").setup({
+            auto_integrations = true,
+        })
+        vim.cmd.colorscheme "catppuccin-mocha"
     end
 }
