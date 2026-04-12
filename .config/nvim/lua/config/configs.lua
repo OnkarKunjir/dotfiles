@@ -43,18 +43,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
-vim.api.nvim_create_autocmd('BufWritePost', {
-    pattern = '*.py',
-    desc = 'format python files on save',
-    callback = function()
-        local file = vim.fn.expand('%:p')
-        vim.fn.system({ 'black', '--quiet', file })
-        vim.fn.system({ 'isort', '--quiet', file })
-        vim.cmd('checktime')
-    end,
-})
-
-
 vim.cmd('set expandtab')
 vim.cmd('set tabstop=4')
 vim.cmd('set softtabstop=4')
