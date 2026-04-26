@@ -47,6 +47,17 @@ return {
             },
         })
 
+        -- vim.lsp.config('pyright', {
+        --     settings = {
+        --         python = {
+        --             analysis = {
+        --                 autoImportCompletions = true,
+        --                 autoSearchPaths = true,
+        --                 useLibraryCodeForTypes = true,
+        --             }
+        --         }
+        --     }
+        -- })
 
         vim.lsp.config('lua_ls', {
             on_init = function(client)

@@ -41,7 +41,7 @@ end)
 
 
 -- Formating file
-vim.keymap.set('n', '<leader>ff', function() vim.lsp.buf.format() end)
+-- vim.keymap.set('n', '<leader>ff', function() vim.lsp.buf.format() end)
 
 
 -- lsp related bindings
@@ -50,8 +50,10 @@ vim.keymap.set('n', '<leader>le', function()
         focusable = true,
     })
 end)
+
 vim.keymap.set('n', '<leader>ld', vim.lsp.buf.hover)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
 vim.keymap.set("n", "gr", vim.lsp.buf.references)
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code action" })
