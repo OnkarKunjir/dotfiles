@@ -1,4 +1,4 @@
-local selected_lsp_servers = { 'lua_ls', 'pyright', 'jsonls' }
+local selected_lsp_servers = { 'lua_ls', 'pyright', 'jsonls', 'gopls' }
 
 return {
     "neovim/nvim-lspconfig",
@@ -39,6 +39,12 @@ return {
         vim.diagnostic.config({
             -- update_in_insert = true,
             underline = true,
+            virtual_text=true,
+            -- virtual_text = {
+            --     spacing = 2,
+            --     source = "if_many",
+            --     prefix = "●",
+            -- },
             float = {
                 focusable = false,
                 style = "minimal",
@@ -46,18 +52,6 @@ return {
                 source = true,
             },
         })
-
-        -- vim.lsp.config('pyright', {
-        --     settings = {
-        --         python = {
-        --             analysis = {
-        --                 autoImportCompletions = true,
-        --                 autoSearchPaths = true,
-        --                 useLibraryCodeForTypes = true,
-        --             }
-        --         }
-        --     }
-        -- })
 
         vim.lsp.config('lua_ls', {
             on_init = function(client)

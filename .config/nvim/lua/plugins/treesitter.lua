@@ -13,6 +13,7 @@ return {
             "vimdoc",
             "c",
             "python",
+            "go"
         })
 
         vim.api.nvim_create_autocmd("FileType", {
