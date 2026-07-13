@@ -34,7 +34,7 @@ vim.keymap.set('i', '{', '{}<left>')
 
 -- Terminal commands
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
-vim.keymap.set("n", "<leader>ot", function()
+vim.keymap.set('n', '<leader>ot', function()
     vim.cmd("botright split | terminal")
     vim.cmd("startinsert")
 end)
@@ -52,8 +52,11 @@ vim.keymap.set('n', '<leader>le', function()
 end)
 
 vim.keymap.set('n', '<leader>ld', vim.lsp.buf.hover)
-vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
-vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
-vim.keymap.set("n", "gr", vim.lsp.buf.references)
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code action" })
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
+vim.keymap.set('n', 'g', vim.lsp.buf.implementation)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP Code action' })
+vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, {
+    desc = 'Raname variable'
+})
