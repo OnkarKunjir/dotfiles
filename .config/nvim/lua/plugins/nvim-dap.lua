@@ -5,11 +5,16 @@ return {
             "rcarriga/nvim-dap-ui",
             "theHamsta/nvim-dap-virtual-text",
             "nvim-neotest/nvim-nio",
+            "leoluz/nvim-dap-go"
             -- "williamboman/mason.nvim",
         },
         config = function()
             local dap = require("dap")
             local ui = require("dapui")
+
+            require("nvim-dap-virtual-text").setup()
+            require("dap-go").setup()
+
             ui.setup()
             dap.listeners.before.attach.dapui_config = function()
                 ui.open()

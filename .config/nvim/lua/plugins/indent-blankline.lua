@@ -5,7 +5,11 @@ return {
     opts = {},
     config = function()
         require("ibl").setup({
-            scope = { enabled = true }
+            scope = { enabled = true },
+            indent = {
+                char = "│",
+                tab_char = "│",
+            },
         })
     end
 }
